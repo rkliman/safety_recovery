@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ur_robot_driver)/launch/ur10e_bringup.launch">
+    <arg name="robot_ip" value="192.168.100.20" />
+  </include>
+  <include file="$(find ur10_e_moveit_config)/launch/ur10_e_moveit_planning_execution.launch"/>
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find safety_recovery)/config/ur_moveit.rviz" />
+  <!-- <node pkg="rqt_joint_trajectory_controller" name="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /> -->
+  <node pkg="safety_recovery" name="safety_recovery_node" type="safety_recovery_node" />
+</launch>
