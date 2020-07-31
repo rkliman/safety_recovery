@@ -1,6 +1,15 @@
 # Safety Recovery ROS Node for Universal Robot (UR10e)
----
 The purpose of this node is to allow for a robotic arm (a Universal Robots UR10e robot in our case) to be able to programatically recover from a protective stop. Below are some notes and observations on how the Universal Robot ROS driver works including setup and some behavior observations.
+
+Link to the UR ROS Driver [here](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver)
+
+## Dependencies
+- `ur_dashboard_msgs`
+- `ur_controllers`
+- `ur_robot_driver`
+- `ur_driver`
+- `tf` (this may upgrade to `tf2` in the future)
+- `moveit_ros_planning_interface`
 
 ## System Setup
 
@@ -40,7 +49,7 @@ The robot's safety mode can be pulled from /ur_hardware_interface/safety_mode gi
 Above are the different numbers and modes that the robot outputs.
 The message publishing is not continuously updated, it only prints out a new status if the status has changed
 
-The UR ROS Driver has an extensive ROS service library for handling the dashboard. More info can be found here: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/ROS_INTERFACE.md#ur_robot_driver_node
+The UR ROS Driver has an extensive ROS service library for handling the dashboard. More info can be found [here](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/ROS_INTERFACE.md#ur_robot_driver_node)
 
 The main services that deal with safety are as follows:
 - `/ur_hardware_interface/dashboard/unlock_protective_stop`
